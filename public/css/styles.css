@@ -28,3 +28,7 @@ table th {
 ol.breadcrumb>li>a{
     color: #9aa0ac!important;
 }
+
+ol.breadcrumb>li{
+    font-size:10px!important;
+}
