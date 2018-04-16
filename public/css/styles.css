@@ -23,3 +23,8 @@ table th {
     font-size: 12px;
     font-weight: 400;
 }
+
+/* BREADCRUMBS */
+ol.breadcrumb>li>a{
+    color: #9aa0ac!important;
+}
