@@ -28,22 +28,16 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $string = $request->get('search');
-        
+        $users = User::paginate(20);
         if($string != ''){
             $users = User::where('name', 'like', '%'.$string.'%')
                     ->orWhere('email', 'like', '%'.$string.'%')
                     ->paginate(20);
-            // $users = User::paginate(20);
-        } else {
-            $users = User::paginate(20);
         }
-            // $users = User::paginate(20);
-            
-       
-        
+
         //Get all users and pass it to the view
         // $users = User::paginate(20); 
-        return view('users.index')->with('users', $users);
+        return view('users.index', compact('users','string'));
     }
 
     /**

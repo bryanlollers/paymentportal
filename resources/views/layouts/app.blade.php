@@ -107,7 +107,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('public/js/app.js') }}"></script>
     <script>
         function ConfirmDelete(){
             return confirm('Are you sure you want to delete this item?');

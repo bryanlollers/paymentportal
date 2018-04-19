@@ -22,11 +22,17 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $roles = Role::all();//Get all roles
+        $string = $request->get('search');
+        $roles = Role::paginate(20);
+        if($string != ''){
+            $roles = Role::where('name', 'like', '%'.$string.'%')
+                    ->paginate(20);
+        }
+        // $roles = Role::all();//Get all roles
 
-        return view('roles.index')->with('roles', $roles);
+        return view('roles.index', compact('roles','string'));
     }
 
     /**
