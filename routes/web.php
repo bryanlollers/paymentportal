@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('master', function () {
     return view('master');
@@ -22,7 +22,7 @@ Route::get('master', function () {
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/', 'PostController@index')->name('home');
+Route::get('/', 'DashboardController@index')->name('home');
 
 Route::resource('users', 'UserController');
 

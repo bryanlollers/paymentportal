@@ -24,11 +24,12 @@ table th {
     font-weight: 400;
 }
 
-/* BREADCRUMBS */
-ol.breadcrumb>li>a{
-    color: #9aa0ac!important;
-}
 
-ol.breadcrumb>li{
-    font-size:12px!important;
+/* NAVBAR */
+
+a.logo:hover,
+a.sidebar-toggle:hover,
+a.sidebar-toggle:active,
+a.sidebar-toggle:visited {
+    text-decoration: none!important;
 }

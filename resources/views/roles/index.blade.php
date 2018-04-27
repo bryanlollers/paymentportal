@@ -1,20 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('title', '| Roles')
 
 @section('content')
 <div class="row">
     <div class="col-lg-12">
-        <ol class="breadcrumb">
-            <li><a href="/"><i class="fa fa-home"></i></a></li>
-            <li class="active">Roles</li>
-        </ol>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div class="btn-group pull-right">
                     <a href="{{ route('roles.create') }}" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> Add Role</a>
-                    <a href="{{ route('users.index') }}" class="btn btn-default btn-xs">Users</a>
-                    <a href="{{ route('permissions.index') }}" class="btn btn-default btn-xs">Permissions</a>
                 </div>
                 <i class="fa fa-th-list"></i> Roles
             </div>
@@ -36,9 +30,10 @@
                             </td>
                         </tr>
                         <tr>
+                            <th></th>
                             <th>Role</th>
                             <th>Permissions</th>
-                            <th>Actions</th>
+                            
                         </tr>
                         
                         
@@ -47,18 +42,18 @@
                     <tbody>
                         @foreach ($roles as $role)
                         <tr>
-        
-                            <td>{{ $role->name }}</td>
-        
-                            <td>{{ str_replace(array('[',']','"'),'', $role->permissions()->pluck('name')) }}</td>{{-- Retrieve array of permissions associated to a role and convert to string --}}
-                            <td>
-                                <a href="{{ URL::to('roles/'.$role->id.'/edit') }}" class="btn btn-info btn-xs pull-left" style="margin-right: 3px;"><i class="fa fa-edit"></i></a>
-
+                            <td class="text-center">
+                                
                                 {!! Form::open(['method' => 'DELETE', 'route' => ['roles.destroy', $role->id], 'onsubmit' => 'return ConfirmDelete()' ]) !!}
+                                <a href="{{ URL::to('roles/'.$role->id.'/edit') }}" class="btn btn-info btn-xs" style="margin-right: 3px;"><i class="fa fa-edit"></i></a>
                                 {!! Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'text-muted btn btn-danger btn-xs']) !!}
                                 {!! Form::close() !!}
         
                             </td>
+                            <td>{{ $role->name }}</td>
+        
+                            <td>{{ str_replace(array('[',']','"'),'', $role->permissions()->pluck('name')) }}</td>{{-- Retrieve array of permissions associated to a role and convert to string --}}
+                            
                         </tr>
                         @endforeach
                     </tbody>

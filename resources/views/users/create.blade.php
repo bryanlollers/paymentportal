@@ -1,17 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('title', '| Add User')
 
 @section('content')
+
 <div class="row">
-    <div class="col-lg-12">
-        <ol class="breadcrumb">
-            <li><a href="/"><i class="fa fa-home"></i></a></li>
-            <li><a href="{{route('users.index')}}">User Administration</a></li>
-            <li class="active">Add User</li>
-        </ol>
-    </div>
-    
     <div class='col-lg-12'>
         <div class="panel panel-default">
             <div class="panel-heading">
